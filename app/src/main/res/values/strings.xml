@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BlogApp</string>
+    <string name="regName_S">Nombre</string>
+    <string name="regMail_s">Correo</string>
+    <string name="regPassword_s">Contraseña</string>
+    <string name="regPasswordConfirm_s">Confirmar contraseña</string>
+</resources>

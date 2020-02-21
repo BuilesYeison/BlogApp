@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BlogApp</string>
+    <string name="regName_S">Name</string>
+    <string name="regMail_s">Mail</string>
+    <string name="regPassword_s">Password</string>
+    <string name="regPasswordConfirm_s">Confirm password</string>
+</resources>
