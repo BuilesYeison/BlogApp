@@ -4,4 +4,5 @@
     <string name="regMail_s">Correo</string>
     <string name="regPassword_s">Contraseña</string>
     <string name="regPasswordConfirm_s">Confirmar contraseña</string>
+    <string name="regBtn_s">Registrarse</string>
 </resources>
