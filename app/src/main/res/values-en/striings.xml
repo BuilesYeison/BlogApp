@@ -6,4 +6,5 @@
     <string name="regPassword_s">Password</string>
     <string name="regPasswordConfirm_s">Confirm password</string>
     <string name="regBtn_s">Sign in</string>
+    <string name="logBtn_s">Log in</string>
 </resources>
