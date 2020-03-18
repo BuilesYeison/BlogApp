@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button)findViewById(R.id.logBtn);
         loginProgress = (ProgressBar)findViewById(R.id.logProgress);
         mAuth = FirebaseAuth.getInstance();//obtenemos la instancia
-        HomeActivity = new Intent(this, com.example.blogapp.Activities.HomeActivity.class);//establecemos a que activity queremos que la variable cambie
+        HomeActivity = new Intent(this, com.example.blogapp.Activities.Home.class);//establecemos a que activity queremos que la variable cambie
         loginPhoto = (ImageView)findViewById(R.id.loginPhoto);
 
         loginPhoto.setOnClickListener(new View.OnClickListener() {//si tocan en la foto es para registrar un nuevo usuario

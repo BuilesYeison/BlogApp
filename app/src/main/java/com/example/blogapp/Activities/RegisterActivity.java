@@ -153,7 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        Intent homeActivity = new Intent(getApplicationContext(),HomeActivity.class);//creamos un intent para pasar de activity
+        Intent homeActivity = new Intent(getApplicationContext(),Home.class);//creamos un intent para pasar de activity
         startActivity(homeActivity);//ejecutamos el activity
         finish();//y matamos el proceso de este activity para que no consuma
     }
