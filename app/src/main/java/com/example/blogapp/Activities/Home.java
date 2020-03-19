@@ -1,5 +1,6 @@
 package com.example.blogapp.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
@@ -7,9 +8,13 @@ import com.example.blogapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -57,15 +62,34 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_logout)
+                R.id.nav_home, R.id.nav_Profile, R.id.nav_Settings,
+                R.id.nav_Logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                int menuId = destination.getId();//obtenemos la id del item al que el usuario da click en el navigation drawer
+                switch (menuId){//hacemos un switch con la seleccion del usuario
+                    case R.id.nav_Logout://en este caso si el usuario da click en el item LogOut
+                        cerrarSesion();//llamamos el metodo que cierra la sesion del usuario
+                        break;
+                }
+            }
+        });
+
         updateNavHeader();//llamamos el metodo que actualiza la info en el nav header
+    }
+
+    private void cerrarSesion() {//metodo para cerrar sesion del usuario y para redirigirlo al activity inicio de sesion
+        FirebaseAuth.getInstance().signOut();//obtenemos la instancia que seria el usuario y cerramos sesion
+        Intent LoginActivity = new Intent(getApplicationContext(),LoginActivity.class);//intent para cambiar de pantalla
+        startActivity(LoginActivity);//iniciamos intent
+        finish();//cerramos este proceso
     }
 
     @Override
