@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
+import com.example.blogapp.Fragments.HomeFragment;
 import com.example.blogapp.Models.Post;
 import com.example.blogapp.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -116,6 +117,9 @@ public class Home extends AppCompatActivity {
         });
 
         updateNavHeader();//llamamos el metodo que actualiza la info en el nav header
+
+        //poner el fragment home como default
+        //getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
     }
 
     private void setupPopupImageClick() {//establecer imagen del post
