@@ -1,6 +1,7 @@
 package com.example.blogapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.blogapp.Activities.PostDetailActivity;
 import com.example.blogapp.Models.Post;
 import com.example.blogapp.R;
 
@@ -52,6 +54,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.myViewHolder >
             tvTittle = itemView.findViewById(R.id.row_post_tittle);//conectamos los componenetes graficos con estos objetos
             imgPost = itemView.findViewById(R.id.row_post_img);
             imgPostProfile = itemView.findViewById(R.id.row_post_profile_img);
+
+            itemView.setOnClickListener(new View.OnClickListener() {//cuando se presioné sobre el post
+                @Override
+                public void onClick(View view) {
+                    Intent postDetailActivity = new Intent(mContext, PostDetailActivity.class);//creamos un intent para pasar al activity que tendra toda la info de ese post
+                    int position = getAdapterPosition();
+
+                    postDetailActivity.putExtra("title",mData.get(position).getsTittle());//pasamos la informacion del post con el intent
+                    postDetailActivity.putExtra("postImage",mData.get(position).getsPicture());
+                    postDetailActivity.putExtra("description",mData.get(position).getsDecription());
+                    postDetailActivity.putExtra("postKey",mData.get(position).getsPostKey());
+                    postDetailActivity.putExtra("userPhoto",mData.get(position).getsUserPhoto());
+
+                    long timeStamp = (long) mData.get(position).getTimeStamp();
+                    postDetailActivity.putExtra("postDate", timeStamp);
+                    mContext.startActivity(postDetailActivity);
+                }
+            });
         }
     }
 }

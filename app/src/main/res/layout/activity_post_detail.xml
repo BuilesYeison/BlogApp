@@ -12,15 +12,12 @@
 
         <TextView
             android:id="@+id/post_detail_date_name"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -87,24 +84,24 @@
             android:id="@+id/post_detail_currentuser_img"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="24dp"
+            android:background="#fff"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/post_detail_desc"
-            tools:srcCompat="@tools:sample/avatars"
-            android:background="#fff"/>
+            tools:srcCompat="@tools:sample/avatars" />
 
         <EditText
-            android:background="@drawable/edittext_button_style_rounded"
             android:id="@+id/post_detail_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/edittext_button_style_rounded"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="@string/post_detail_edittext"
+            android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="@+id/post_detail_currentuser_img"
             app:layout_constraintStart_toEndOf="@+id/post_detail_currentuser_img"
             app:layout_constraintTop_toTopOf="@+id/post_detail_currentuser_img" />
@@ -113,15 +110,25 @@
             android:id="@+id/post_detail_add_comment_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:background="@drawable/edittext_button_style_rounded"
             android:text="@string/post_detail_btnAdd"
             app:layout_constraintBottom_toBottomOf="@+id/post_detail_comment"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.384"
+            app:layout_constraintHorizontal_bias="0.13"
             app:layout_constraintStart_toEndOf="@+id/post_detail_comment"
-            app:layout_constraintTop_toTopOf="@+id/post_detail_comment" />
+            app:layout_constraintTop_toTopOf="@+id/post_detail_comment"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/post_detail_user_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/post_detail_date_name"
+            app:layout_constraintStart_toEndOf="@+id/post_detail_date_name"
+            app:layout_constraintTop_toTopOf="@+id/post_detail_date_name"
+            tools:srcCompat="@tools:sample/avatars[3]" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
